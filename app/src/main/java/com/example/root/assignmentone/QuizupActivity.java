@@ -1,7 +1,7 @@
 package com.example.root.assignmentone;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +19,8 @@ public class QuizupActivity extends AppCompatActivity {
 
     private int randomNumber;
     private String displayNumber;
+
+    private RetainedFragment dataFragment;
 
     public void setupQuestion(){
         Random r = new Random();
@@ -45,6 +47,8 @@ public class QuizupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quizup);
 
         setupQuestion();
+
+
 
         yesButton = (Button)findViewById(R.id.yesButton);
         noButton = (Button)findViewById(R.id.noButton);
