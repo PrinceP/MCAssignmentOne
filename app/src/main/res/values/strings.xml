@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AssignmentOne</string>
+    <string name="message_1">Is this number prime?</string>
+    <string name="yesbutton">Yes</string>
+    <string name="nobutton">No</string>
+    <string name="nextbutton">Next</string>
+    <string name="Correct_Toast">You are right!</string>
+    <string name="Incorrect_Toast">Wrong</string>
+
+
 </resources>
