@@ -2,6 +2,7 @@ package com.example.root.assignmentone;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -57,9 +58,13 @@ public class QuizupActivity extends AppCompatActivity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (isPrime()) {
-                    Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT).show();
+                    Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT);
+                    t1.setGravity(Gravity.CENTER,0,200);
+                    t1.show();
                 } else {
-                    Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT).show();
+                    Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT);
+                    t2.setGravity(Gravity.CENTER,0,200);
+                    t2.show();
                 }
             }
         });
@@ -67,9 +72,13 @@ public class QuizupActivity extends AppCompatActivity {
         noButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (isPrime()) {
-                    Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT).show();
+                    Toast t3 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT);
+                    t3.setGravity(Gravity.CENTER,0,200);
+                    t3.show();
                 } else {
-                    Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT).show();
+                    Toast t4 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT);
+                    t4.setGravity(Gravity.CENTER,0,200);
+                    t4.show();
                 }
             }
         });

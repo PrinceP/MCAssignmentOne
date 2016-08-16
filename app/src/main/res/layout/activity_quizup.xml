@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/radialgradientback"
     tools:context="com.example.root.assignmentone.QuizupActivity">
 
     <TableRow
@@ -20,7 +21,8 @@
             android:layout_height="wrap_content"
             android:text="@string/message_1"
             android:textStyle="bold"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:textColor="#e30b24" />
 
 
     </TableRow>
@@ -56,7 +58,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:textColor="#e30b24" />
 
         <Button
             android:id="@+id/noButton"
@@ -64,7 +66,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:textColor="#e30b24" />
 
     </TableRow>
 
@@ -78,7 +80,7 @@
         android:text="@string/nextbutton"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        />
+        android:textColor="#e30b24" />
 
     </TableRow>
 </TableLayout>
