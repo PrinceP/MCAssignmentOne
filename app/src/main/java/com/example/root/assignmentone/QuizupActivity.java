@@ -55,16 +55,19 @@ public class QuizupActivity extends AppCompatActivity {
         noButton = (Button)findViewById(R.id.noButton);
         nextButton = (Button)findViewById(R.id.nexButton);
 
+
         yesButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (isPrime()) {
                     Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT);
                     t1.setGravity(Gravity.CENTER,0,200);
                     t1.show();
+                    yesButton.setEnabled(false);
                 } else {
                     Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT);
                     t2.setGravity(Gravity.CENTER,0,200);
                     t2.show();
+                    yesButton.setEnabled(false);
                 }
             }
         });
@@ -75,10 +78,14 @@ public class QuizupActivity extends AppCompatActivity {
                     Toast t3 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT);
                     t3.setGravity(Gravity.CENTER,0,200);
                     t3.show();
+                    noButton.setEnabled(false);
+
                 } else {
                     Toast t4 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT);
                     t4.setGravity(Gravity.CENTER,0,200);
                     t4.show();
+                    noButton.setEnabled(false);
+
                 }
             }
         });
@@ -86,6 +93,8 @@ public class QuizupActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 setupQuestion();
+                yesButton.setEnabled(true);
+                noButton.setEnabled(true);
             }
         });
 
