@@ -1,5 +1,6 @@
 package com.example.root.assignmentone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -12,16 +13,21 @@ import java.util.Random;
 
 public class QuizupActivity extends AppCompatActivity {
 
-
+    @SuppressWarnings("FieldCanBeLocal")
     private Button yesButton;
+    @SuppressWarnings("FieldCanBeLocal")
     private Button noButton;
+    @SuppressWarnings("FieldCanBeLocal")
     private Button nextButton;
+    @SuppressWarnings("FieldCanBeLocal")
     private TextView randomNumber_TextView;
+
+    private Button hintButton;
+    private Button cheatButton;
+
 
     private int randomNumber;
     private String displayNumber;
-
-    private RetainedFragment dataFragment;
 
     public void setupQuestion(){
         Random r = new Random();
@@ -54,6 +60,12 @@ public class QuizupActivity extends AppCompatActivity {
         yesButton = (Button)findViewById(R.id.yesButton);
         noButton = (Button)findViewById(R.id.noButton);
         nextButton = (Button)findViewById(R.id.nexButton);
+
+        hintButton = (Button) findViewById(R.id.hintButton);
+        cheatButton = (Button) findViewById(R.id.cheatButton);
+
+
+
 
 
         yesButton.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +110,23 @@ public class QuizupActivity extends AppCompatActivity {
             }
         });
 
+
+        hintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(QuizupActivity.this, HintActivity.class);
+                myIntent.putExtra("RandomNumber",displayNumber);
+                QuizupActivity.this.startActivity(myIntent);
+            }
+        });
+
+        cheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(QuizupActivity.this, CheatActivity.class);
+                QuizupActivity.this.startActivity(myIntent);
+            }
+        });
 
     }
 

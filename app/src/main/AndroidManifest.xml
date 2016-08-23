@@ -7,14 +7,35 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".QuizupActivity"
+        android:theme="@style/AppTheme"
+        >
+        <activity
+            android:name=".QuizupActivity"
+            android:launchMode="singleTop"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".HintActivity"
+            android:label="@string/title_activity_hint"
+            android:parentActivityName=".QuizupActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.assignmentone.QuizupActivity" />
+        </activity>
+        <activity
+            android:name=".CheatActivity"
+            android:label="@string/title_activity_cheat"
+            android:parentActivityName=".QuizupActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.assignmentone.QuizupActivity" />
         </activity>
     </application>
 
