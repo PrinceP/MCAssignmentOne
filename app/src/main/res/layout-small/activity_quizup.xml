@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal|center_vertical"
+
         >
 
         <TextView
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:text="@string/message_1"
             android:textStyle="bold"
-            android:textSize="15sp"
+            android:textSize="11sp"
             android:textColor="#e30b24" />
 
 
@@ -31,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|center"
-        android:layout_weight="1">
+        >
 
         <TextView
             android:id="@+id/TextView_randomNumber"
@@ -39,8 +40,9 @@
             android:layout_height="wrap_content"
             android:textColor="@color/abc_primary_text_material_light"
             android:textStyle="bold"
+            android:text="1000"
             android:gravity="center"
-            android:textSize="20sp" />
+            android:textSize="10sp" />
 
 
     </TableRow>
@@ -58,7 +60,8 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#e30b24" />
+            android:textColor="#e30b24"
+            />
 
         <Button
             android:id="@+id/noButton"
@@ -83,4 +86,33 @@
             android:textColor="#e30b24" />
 
     </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/cheatButton"
+            android:layout_weight="1"
+            android:text="@string/cheatbutton"
+            android:textColor="#e30b24"
+            android:scaleType="fitXY"
+            />
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/hintButton"
+            android:src="@drawable/hint"
+            android:layout_weight="1"
+            android:text="@string/hintbutton"
+            android:textColor="#e30b24"/>
+
+    </TableRow>
+
+
+
+
 </TableLayout>

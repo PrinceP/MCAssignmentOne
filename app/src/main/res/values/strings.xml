@@ -10,7 +10,13 @@
     <string name="title_activity_cheat">Your Answer!</string>
     <string name="hintbutton">Hint</string>
     <string name="cheatbutton">Cheat</string>
-
-
+    <string name="Correct_Toast_hint">Taken hint and correct !!</string>
+    <string name="Incorrect_Toast_hint">Taken hint and Wrong Answer</string>
+    <string name="text_cheat_yes">It is prime.</string>
+    <string name="text_cheat_no">It is not prime.</string>
+    <string name="Correct_Toast_cheat">You have cheated! Correct answer</string>
+    <string name="Incorrect_Toast_cheat">You have cheated! Wrong Answer</string>
+    <string name="Correct_Toast_cheat_hint">Hinted and Cheated ! Correct Answer</string>
+    <string name="Incorrect_Toast_cheat_hint">Hinted and Cheated ! Wrong Answer</string>
 
 </resources>

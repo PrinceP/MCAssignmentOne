@@ -25,7 +25,8 @@ public class QuizupActivity extends AppCompatActivity {
     private Button hintButton;
     private Button cheatButton;
 
-
+    private boolean ifcheated;
+    private boolean ifhinted;
     private int randomNumber;
     private String displayNumber;
 
@@ -70,35 +71,193 @@ public class QuizupActivity extends AppCompatActivity {
 
         yesButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (isPrime()) {
-                    Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT);
-                    t1.setGravity(Gravity.CENTER,0,200);
-                    t1.show();
-                    yesButton.setEnabled(false);
-                } else {
-                    Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT);
-                    t2.setGravity(Gravity.CENTER,0,200);
-                    t2.show();
-                    yesButton.setEnabled(false);
+
+                if(ifhinted==false) {
+
+                    if(ifcheated==false) {
+                        if (isPrime()) {
+                            Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT);
+                            t1.setGravity(Gravity.CENTER, 0, 200);
+                            t1.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        } else {
+                            Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT);
+                            t2.setGravity(Gravity.CENTER, 0, 200);
+                            t2.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        }
+
+                    }
+                    else{
+
+                        if (isPrime()) {
+                            Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast_cheat, Toast.LENGTH_SHORT);
+                            t1.setGravity(Gravity.CENTER, 0, 200);
+                            t1.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        } else {
+                            Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast_cheat, Toast.LENGTH_SHORT);
+                            t2.setGravity(Gravity.CENTER, 0, 200);
+                            t2.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        }
+
+
+
+
+                    }
+                    ifhinted = false;
+                    ifcheated = false;
+
+
                 }
+                else{
+                    if(ifcheated==false)
+                    {
+                        if (isPrime()) {
+                        Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast_hint, Toast.LENGTH_SHORT);
+                        t1.setGravity(Gravity.CENTER, 0, 200);
+                        t1.show();
+                        yesButton.setEnabled(false);
+                        noButton.setEnabled(false);
+                    } else {
+                        Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast_hint, Toast.LENGTH_SHORT);
+                        t2.setGravity(Gravity.CENTER, 0, 200);
+                        t2.show();
+                        yesButton.setEnabled(false);
+                        noButton.setEnabled(false);
+                    }
+
+                }
+                else{
+
+                    if (isPrime()) {
+                        Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast_cheat_hint, Toast.LENGTH_SHORT);
+                        t1.setGravity(Gravity.CENTER, 0, 200);
+                        t1.show();
+                        yesButton.setEnabled(false);
+                        noButton.setEnabled(false);
+                    } else {
+                        Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast_cheat_hint, Toast.LENGTH_SHORT);
+                        t2.setGravity(Gravity.CENTER, 0, 200);
+                        t2.show();
+                        yesButton.setEnabled(false);
+                        noButton.setEnabled(false);
+                    }
+
+
+
+
+                }
+                    ifhinted = false;
+                    ifcheated = false;
+
+                }
+
+
             }
         });
 
         noButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                if (isPrime()) {
-                    Toast t3 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT);
-                    t3.setGravity(Gravity.CENTER,0,200);
-                    t3.show();
-                    noButton.setEnabled(false);
 
-                } else {
-                    Toast t4 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT);
-                    t4.setGravity(Gravity.CENTER,0,200);
-                    t4.show();
-                    noButton.setEnabled(false);
+                if(ifhinted==false) {
+
+                    if(ifcheated==false) {
+                        if (isPrime()) {
+                            Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast, Toast.LENGTH_SHORT);
+                            t1.setGravity(Gravity.CENTER, 0, 200);
+                            t1.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        } else {
+                            Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast, Toast.LENGTH_SHORT);
+                            t2.setGravity(Gravity.CENTER, 0, 200);
+                            t2.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        }
+
+                    }
+                    else{
+
+                        if (isPrime()) {
+                            Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast_cheat, Toast.LENGTH_SHORT);
+                            t1.setGravity(Gravity.CENTER, 0, 200);
+                            t1.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        } else {
+                            Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast_cheat, Toast.LENGTH_SHORT);
+                            t2.setGravity(Gravity.CENTER, 0, 200);
+                            t2.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        }
+
+
+
+
+                    }
+                    ifhinted = false;
+                    ifcheated = false;
+
 
                 }
+                else{
+                    if(ifcheated==false)
+                    {
+                        if (isPrime()) {
+                            Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast_hint, Toast.LENGTH_SHORT);
+                            t1.setGravity(Gravity.CENTER, 0, 200);
+                            t1.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        } else {
+                            Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast_hint, Toast.LENGTH_SHORT);
+                            t2.setGravity(Gravity.CENTER, 0, 200);
+                            t2.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        }
+
+                    }
+                    else{
+
+                        if (isPrime()) {
+                            Toast t1 = Toast.makeText(QuizupActivity.this, R.string.Incorrect_Toast_cheat_hint, Toast.LENGTH_SHORT);
+                            t1.setGravity(Gravity.CENTER, 0, 200);
+                            t1.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        } else {
+                            Toast t2 = Toast.makeText(QuizupActivity.this, R.string.Correct_Toast_cheat_hint, Toast.LENGTH_SHORT);
+                            t2.setGravity(Gravity.CENTER, 0, 200);
+                            t2.show();
+                            yesButton.setEnabled(false);
+                            noButton.setEnabled(false);
+                        }
+
+
+
+
+                    }
+                    ifhinted = false;
+                    ifcheated = false;
+
+                }
+
+
+
+
+
+
+
+
             }
         });
 
@@ -114,6 +273,7 @@ public class QuizupActivity extends AppCompatActivity {
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ifhinted = true;
                 Intent myIntent = new Intent(QuizupActivity.this, HintActivity.class);
                 myIntent.putExtra("RandomNumber",displayNumber);
                 QuizupActivity.this.startActivity(myIntent);
@@ -123,7 +283,9 @@ public class QuizupActivity extends AppCompatActivity {
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ifcheated = true;
                 Intent myIntent = new Intent(QuizupActivity.this, CheatActivity.class);
+                myIntent.putExtra("RandomNumber",displayNumber);
                 QuizupActivity.this.startActivity(myIntent);
             }
         });

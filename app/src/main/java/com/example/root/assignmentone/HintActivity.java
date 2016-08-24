@@ -17,7 +17,7 @@ public class HintActivity extends AppCompatActivity {
     private int randomNumber;
     private String randNum;
     private TextView hinttext;
-    private Button back;
+    private TextView numbertext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +35,14 @@ public class HintActivity extends AppCompatActivity {
         randomNumber = Integer.parseInt(randNum);
 
 
+
+        numbertext = (TextView) findViewById(R.id.TextView_randomNumberhint);
+        numbertext.setText(randNum);
+
         hinttext = (TextView) findViewById(R.id.HintTextView);
-        double d = Math.ceil(Math.sqrt(randomNumber));
-        String text = "Check your division until "+d+" for "+randNum;
+        double d = Math.floor(Math.sqrt(randomNumber));
+        String text = "Divide until "+d;
         hinttext.setText(text);
-
-
 
     }
 
