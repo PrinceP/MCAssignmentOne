@@ -12,7 +12,7 @@
         <activity
             android:name=".QuizupActivity"
             android:launchMode="singleTop"
-            android:configChanges="orientation|keyboardHidden|screenSize">
+            android:configChanges="keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

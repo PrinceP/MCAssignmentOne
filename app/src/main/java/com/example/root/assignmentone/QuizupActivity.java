@@ -13,20 +13,22 @@ import java.util.Random;
 
 public class QuizupActivity extends AppCompatActivity {
 
-    @SuppressWarnings("FieldCanBeLocal")
+
+    static final String NUMBER = "rNumber";
+    static final String CHEAT = "rCheat";
+    static final String HINT = "rHint";
+
+
     private Button yesButton;
-    @SuppressWarnings("FieldCanBeLocal")
     private Button noButton;
-    @SuppressWarnings("FieldCanBeLocal")
     private Button nextButton;
-    @SuppressWarnings("FieldCanBeLocal")
     private TextView randomNumber_TextView;
 
     private Button hintButton;
     private Button cheatButton;
 
-    private boolean ifcheated;
-    private boolean ifhinted;
+    private boolean ifcheated = false;
+    private boolean ifhinted = false;
     private int randomNumber;
     private String displayNumber;
 
@@ -54,7 +56,21 @@ public class QuizupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizup);
 
-        setupQuestion();
+        if(savedInstanceState != null){
+            randomNumber = savedInstanceState.getInt(NUMBER);
+            displayNumber = "" + randomNumber + "" ;
+            randomNumber_TextView = (TextView) findViewById(R.id.TextView_randomNumber);
+            randomNumber_TextView.setText(displayNumber);
+
+            ifcheated = savedInstanceState.getBoolean(CHEAT);
+            ifhinted = savedInstanceState.getBoolean(HINT);
+
+
+        }else{
+
+            setupQuestion();
+
+        }
 
 
 
@@ -316,5 +332,30 @@ public class QuizupActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
     }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        savedInstanceState.putInt(NUMBER, randomNumber);
+        savedInstanceState.putBoolean(CHEAT,ifcheated );
+        savedInstanceState.putBoolean(HINT,ifhinted);
+
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    /*
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore state members from saved instance
+        randomNumber = savedInstanceState.getInt(NUMBER);
+        ifcheated = savedInstanceState.getBoolean(CHEAT);
+        ifhinted = savedInstanceState.getBoolean(HINT);
+     }
+     */
 }
 
