@@ -57,6 +57,7 @@
             android:id="@+id/yesButton"
             android:text="@string/yesbutton"
             android:layout_width="0dip"
+            android:textSize="100sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="#e30b24"
@@ -65,6 +66,7 @@
         <Button
             android:id="@+id/noButton"
             android:text="@string/nobutton"
+            android:textSize="100sp"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -80,6 +82,7 @@
         <Button
             android:id="@+id/nexButton"
             android:text="@string/nextbutton"
+            android:textSize="100sp"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:textColor="#e30b24" />
@@ -97,6 +100,7 @@
             android:id="@+id/cheatButton"
             android:drawableRight="@drawable/bulb"
             android:layout_weight="1"
+            android:textSize="80sp"
             android:text="@string/cheatbutton"
             android:textColor="#e30b24"
             />
@@ -106,6 +110,7 @@
             android:id="@+id/hintButton"
             android:src="@drawable/hint"
             android:layout_weight="1"
+            android:textSize="80sp"
             android:drawableRight="@drawable/hint"
             android:text="@string/hintbutton"
             android:textColor="#e30b24"/>
