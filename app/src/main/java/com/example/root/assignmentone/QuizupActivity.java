@@ -282,6 +282,8 @@ public class QuizupActivity extends AppCompatActivity {
                 setupQuestion();
                 yesButton.setEnabled(true);
                 noButton.setEnabled(true);
+                ifhinted = false;
+                ifcheated = false;
             }
         });
 
@@ -289,20 +291,35 @@ public class QuizupActivity extends AppCompatActivity {
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ifhinted = true;
-                Intent myIntent = new Intent(QuizupActivity.this, HintActivity.class);
-                myIntent.putExtra("RandomNumber",displayNumber);
-                QuizupActivity.this.startActivity(myIntent);
+                if(yesButton.isEnabled()) {
+                    ifhinted = true;
+                    Intent myIntent = new Intent(QuizupActivity.this, HintActivity.class);
+                    myIntent.putExtra("RandomNumber", displayNumber);
+                    QuizupActivity.this.startActivity(myIntent);
+                }
+                else{
+                    Toast t = Toast.makeText(QuizupActivity.this, "You already answered", Toast.LENGTH_SHORT);
+                    t.setGravity(Gravity.CENTER, 0, 200);
+                    t.show();
+                }
+
             }
         });
 
         cheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ifcheated = true;
-                Intent myIntent = new Intent(QuizupActivity.this, CheatActivity.class);
-                myIntent.putExtra("RandomNumber",displayNumber);
-                QuizupActivity.this.startActivity(myIntent);
+                if(yesButton.isEnabled()) {
+                    ifcheated = true;
+                    Intent myIntent = new Intent(QuizupActivity.this, CheatActivity.class);
+                    myIntent.putExtra("RandomNumber", displayNumber);
+                    QuizupActivity.this.startActivity(myIntent);
+                }
+                else{
+                    Toast t = Toast.makeText(QuizupActivity.this, "You already answered", Toast.LENGTH_SHORT);
+                    t.setGravity(Gravity.CENTER, 0, 200);
+                    t.show();
+                }
             }
         });
 
