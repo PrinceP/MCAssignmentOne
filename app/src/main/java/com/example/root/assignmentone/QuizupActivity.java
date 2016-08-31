@@ -17,6 +17,12 @@ public class QuizupActivity extends AppCompatActivity {
     static final String NUMBER = "rNumber";
     static final String CHEAT = "rCheat";
     static final String HINT = "rHint";
+    static final String BUTTON ="Button";
+
+
+    static final int HINT_REQUEST = 1;
+    static final int CHEAT_REQUEST = 2;
+
 
 
     private Button yesButton;
@@ -29,6 +35,9 @@ public class QuizupActivity extends AppCompatActivity {
 
     private boolean ifcheated = false;
     private boolean ifhinted = false;
+    private boolean ifbutton = true;
+
+
     private int randomNumber;
     private String displayNumber;
 
@@ -64,6 +73,13 @@ public class QuizupActivity extends AppCompatActivity {
 
             ifcheated = savedInstanceState.getBoolean(CHEAT);
             ifhinted = savedInstanceState.getBoolean(HINT);
+            ifbutton = savedInstanceState.getBoolean(BUTTON);
+            if(!ifbutton){
+                yesButton  = (Button) findViewById(R.id.yesButton);
+                noButton = (Button) findViewById(R.id.noButton);
+                yesButton.setEnabled(false);
+                noButton.setEnabled(false);
+            }
 
 
         }else{
@@ -87,7 +103,7 @@ public class QuizupActivity extends AppCompatActivity {
 
         yesButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                ifbutton = false;
                 if(ifhinted==false) {
 
                     if(ifcheated==false) {
@@ -126,12 +142,13 @@ public class QuizupActivity extends AppCompatActivity {
 
 
                     }
-                    ifhinted = false;
-                    ifcheated = false;
+                    //ifhinted = false;
+                    //ifcheated = false;
 
 
                 }
                 else{
+
                     if(ifcheated==false)
                     {
                         if (isPrime()) {
@@ -169,8 +186,8 @@ public class QuizupActivity extends AppCompatActivity {
 
 
                 }
-                    ifhinted = false;
-                    ifcheated = false;
+                    //ifhinted = false;
+                    //ifcheated = false;
 
                 }
 
@@ -180,7 +197,7 @@ public class QuizupActivity extends AppCompatActivity {
 
         noButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
+                ifbutton = false;
                 if(ifhinted==false) {
 
                     if(ifcheated==false) {
@@ -219,8 +236,8 @@ public class QuizupActivity extends AppCompatActivity {
 
 
                     }
-                    ifhinted = false;
-                    ifcheated = false;
+                    //ifhinted = false;
+                    //ifcheated = false;
 
 
                 }
@@ -262,8 +279,8 @@ public class QuizupActivity extends AppCompatActivity {
 
 
                     }
-                    ifhinted = false;
-                    ifcheated = false;
+                    //ifhinted = false;
+                    //ifcheated = false;
 
                 }
 
@@ -292,10 +309,9 @@ public class QuizupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(yesButton.isEnabled()) {
-                    ifhinted = true;
                     Intent myIntent = new Intent(QuizupActivity.this, HintActivity.class);
                     myIntent.putExtra("RandomNumber", displayNumber);
-                    QuizupActivity.this.startActivity(myIntent);
+                    QuizupActivity.this.startActivityForResult(myIntent,HINT_REQUEST);
                 }
                 else{
                     Toast t = Toast.makeText(QuizupActivity.this, "You already answered", Toast.LENGTH_SHORT);
@@ -310,10 +326,9 @@ public class QuizupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(yesButton.isEnabled()) {
-                    ifcheated = true;
                     Intent myIntent = new Intent(QuizupActivity.this, CheatActivity.class);
                     myIntent.putExtra("RandomNumber", displayNumber);
-                    QuizupActivity.this.startActivity(myIntent);
+                    QuizupActivity.this.startActivityForResult(myIntent,CHEAT_REQUEST);
                 }
                 else{
                     Toast t = Toast.makeText(QuizupActivity.this, "You already answered", Toast.LENGTH_SHORT);
@@ -324,6 +339,29 @@ public class QuizupActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == HINT_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                ifhinted = true;
+
+            }
+        }
+        if (requestCode == CHEAT_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                ifcheated = true;
+
+
+            }
+        }
+
+    }
+
+
 
     @Override
     protected void onStop() {
@@ -357,6 +395,7 @@ public class QuizupActivity extends AppCompatActivity {
         savedInstanceState.putInt(NUMBER, randomNumber);
         savedInstanceState.putBoolean(CHEAT,ifcheated );
         savedInstanceState.putBoolean(HINT,ifhinted);
+        savedInstanceState.putBoolean(BUTTON,ifbutton);
 
 
         // Always call the superclass so it can save the view hierarchy state

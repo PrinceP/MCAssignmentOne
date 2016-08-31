@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,6 +45,19 @@ public class HintActivity extends AppCompatActivity {
         String text = "Divide until "+d;
         hinttext.setText(text);
 
+
+
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            setResult(RESULT_OK);
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }
